@@ -32,7 +32,7 @@ function BalanceBox() {
                 <div className="flex flex-col bg-white border shadow-sm rounded-xl p-4 md:p-5">
                     <div className="text-center">
                         <div className="text-lg sm:text-xl font-semibold text-green-400">Balance</div>
-                        <p className="mt-2 sm:mt-3 text-2xl sm:text-2xl font-bold text-green-500">{isLoading ? 'Loading...' : Balance ?? '0'} AGRA</p>
+                        <p className="mt-2 sm:mt-3 text-2xl sm:text-2xl font-bold text-green-500">{isLoading ? 'Loading...' : Balance ?? '0'} ARU</p>
                     </div>
                     <ActionBox />
                 </div>
