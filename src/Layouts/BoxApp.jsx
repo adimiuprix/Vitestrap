@@ -1,7 +1,7 @@
-import DisconnectView from './DisconnectView'
-import AcnBox from "./Acnbox"
-import BalanceBox from './BalanceBox'
-import EarningBox from './EarningBox'
+import DisconnectView from '../components/DisconnectView'
+import AcnBox from "../components/Acnbox"
+import BalanceBox from '../components/BalanceBox'
+import EarningBox from '../components/EarningBox'
 
 import { useAccount } from 'wagmi'
 

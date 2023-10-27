@@ -1,6 +1,6 @@
 import '@rainbow-me/rainbowkit/styles.css'
 import './App.css'
-import BoxApp from './components/BoxApp'
+import BoxApp from './Layouts/BoxApp'
 import Footer from './components/Footer'
 import Header from './components/Header'
 
