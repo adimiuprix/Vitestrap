@@ -7,22 +7,22 @@ function ActionBox(){
         address: '0xCd43dC81ebbe592Be94C67AB8A09420ecB0fB6Aa',  // Address token nya
         abi: erc20ABI,
         functionName: "approve",
-        args: [ '0x4c287d39d0faEc45E758a27cea57CE1BF272d6c4', (parseEther('1')) ],  // Izinkan alamat spender dan masukkan nilai
+        args: [ '0x4c287d39d0faEc45E758a27cea57CE1BF272d6c4', (parseEther('100')) ],  // Izinkan alamat spender dan masukkan nilai
 		
         //  Jika berhasil jalankan fungsi kedua yang bernama deposits
         onSuccess() {
 			setTimeout( () => {
-				deposit?.()
+				stake?.()
 			}, 7000 );
 		},
     })
 
     // Jalankan fungsi deposits seperti biasanya
-	const { write: deposit } = useContractWrite( {
+	const { write: stake } = useContractWrite( {
 		address: '0x4c287d39d0faEc45E758a27cea57CE1BF272d6c4',
 		abi: ContractStaking,
-		functionName: "deposit",
-		 args: [ (parseEther('1')) ],  //  Masukkan argument nya
+		functionName: "stake",
+		 args: [ (parseEther('100')) ],  //  Masukkan argument nya
 		onSuccess( data ) {
 			console.log( data )
 		},
