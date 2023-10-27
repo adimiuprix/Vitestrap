@@ -4,10 +4,10 @@ import { ContractStaking } from '../constant/ContractStaking'
 
 function ActionBox(){
     const { write: approveWrite } = useContractWrite({
-        address: '0xCd43dC81ebbe592Be94C67AB8A09420ecB0fB6Aa',  // Address token nya
+        address: '0xbD0bA23C562edf24ACcEcAB67BaEB9ef0Bd7b98f',  // Address token nya
         abi: erc20ABI,
         functionName: "approve",
-        args: [ '0x4c287d39d0faEc45E758a27cea57CE1BF272d6c4', (parseEther('100')) ],  // Izinkan alamat spender dan masukkan nilai
+        args: [ '0xFE13734d3D2F1Ed26d55F26C171072443655a42c', (parseEther('100')) ],  // Izinkan alamat spender dan masukkan nilai
 		
         //  Jika berhasil jalankan fungsi kedua yang bernama deposits
         onSuccess() {
@@ -19,7 +19,7 @@ function ActionBox(){
 
     // Jalankan fungsi deposits seperti biasanya
 	const { write: stake } = useContractWrite( {
-		address: '0x4c287d39d0faEc45E758a27cea57CE1BF272d6c4',
+		address: '0xFE13734d3D2F1Ed26d55F26C171072443655a42c',
 		abi: ContractStaking,
 		functionName: "stake",
 		 args: [ (parseEther('100')) ],  //  Masukkan argument nya

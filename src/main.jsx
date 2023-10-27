@@ -7,12 +7,12 @@ import './index.css'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'
 import { chains, config } from './wagmiConfig.jsx' // Untuk mengkonfigurasi wagmi, semua ada di module ini
-import { sepolia } from 'wagmi/chains'
+import { polygon } from 'wagmi/chains'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <WagmiConfig config={config}>
-    <RainbowKitProvider chains={chains} initialChain={sepolia} modalSize='compact' showRecentTransactions={true}>
+    <RainbowKitProvider chains={chains} initialChain={polygon} modalSize='compact' showRecentTransactions={true}>
       <App />
     </RainbowKitProvider>
     </WagmiConfig>

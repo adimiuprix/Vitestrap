@@ -9,7 +9,7 @@ function EarningBox(){
     const [EarnBalance, setEarnBalance] = useState(null)
 
     const { isLoading, isSuccess, data } = useContractRead({
-        address: "0x4c287d39d0faec45e758a27cea57ce1bf272d6c4",
+        address: "0xFE13734d3D2F1Ed26d55F26C171072443655a42c",
         abi: ContractStaking,
         functionName: "calculateReward",
         args: [ address ],
