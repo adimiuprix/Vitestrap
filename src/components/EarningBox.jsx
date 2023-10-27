@@ -1,29 +1,32 @@
 import { useEffect, useState } from 'react'
 import { useContractRead, useAccount } from 'wagmi'
 import { ContractStaking } from '../constant/ContractStaking'
+import { formatUnits } from 'viem'
 
 function EarningBox(){
     const { address } = useAccount()
-    
-    const [saldo, setSaldo] = useState(null)
+    const [earnBalance, setearnBalance] = useState(null)
 
     const { isLoading, isSuccess, data } = useContractRead({
         address: "0x4c287d39d0faec45e758a27cea57ce1bf272d6c4",
         abi: ContractStaking,
         functionName: "calculateReward",
-        formatUnits: 'ether',
         args: [ address ],
         watch: true,
     })
 
+    const dataBalance = data
+    const decimals = 18
+    const balanceNow = formatUnits(dataBalance, decimals).slice(0, 18)
+
     useEffect(() => {
-        if (isSuccess && data) {
-            const saldoValue = data.toString() ?? null
-            setSaldo(saldoValue)
+        if (isSuccess && balanceNow) {
+            const balValue = balanceNow.toString() ?? null
+            setearnBalance(balValue)
         } else {
-          setSaldo(null)
+            setearnBalance(null)
         }
-    }, [isSuccess, data])
+    }, [isSuccess, balanceNow])
 
     return(
         <>
@@ -34,7 +37,7 @@ function EarningBox(){
                         {/* Isinya */}
                         <div className="text-center">
                             <div className="text-lg sm:text-xl font-semibold text-green-400">Earning</div>
-                            <p className="mt-2 sm:mt-3 text-2xl sm:text-2xl font-bold text-green-500">{isLoading ? 'Loading...' : saldo ?? 'Data unavailable'} AGRA</p>
+                            <p className="mt-2 sm:mt-3 text-2xl sm:text-2xl font-bold text-green-500">{isLoading ? 'Loading...' : earnBalance ?? 'Data unavailable'} AGRA</p>
                         </div>
                         <div className="text-center gap-5 pt-5">
                             <button type="button" className="py-3 px-4 inline-flex justify-center items-center rounded-md bg-green-100 border border-transparent font-semibold text-green-500 hover:text-white hover:bg-teal-500 focus:outline-none focus:ring-2 ring-offset-white focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 m-3">
